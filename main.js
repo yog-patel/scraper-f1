@@ -103,7 +103,32 @@ const {
 async function main() {
 
     const urls = [
-        "https://www.mvlempyr.com/novel/blessed-to-be-the-villain"
+'https://www.mvlempyr.com/novel/face-slapping-system',
+  'https://www.mvlempyr.com/novel/fake-professor-misunderstood-as-strong',
+  'https://www.mvlempyr.com/novel/fake-saint-of-the-year',
+  'https://www.mvlempyr.com/novel/falling-in-love-with-the-king-of-beasts',
+  'https://www.mvlempyr.com/novel/family-cultivation-i-can-store-my-ability-to-understand',
+  'https://www.mvlempyr.com/novel/family-cultivation-my-entire-family-are-villains',
+  'https://www.mvlempyr.com/novel/family-system',
+  'https://www.mvlempyr.com/novel/fantastic-beasts-of-records-lecherous-prince-of-the-sea',
+  'https://www.mvlempyr.com/novel/fantasy-empress-wife-cute-kids-cause-havoc-in-jiuzhou',
+  'https://www.mvlempyr.com/novel/fantasy-im-really-not-a-supreme-master',
+  'https://www.mvlempyr.com/novel/fantasy-world-i-can-travel-to-cultivation-world',
+  'https://www.mvlempyr.com/novel/faraway-wanderers',
+  'https://www.mvlempyr.com/novel/fate-reignites-my-rampage-in-a-world-where-time-stops',
+  'https://www.mvlempyr.com/novel/fated-to-be-loved-by-villains',
+  'https://www.mvlempyr.com/novel/fated-to-die-to-the-player-ill-live-freely-with-my-sss-class-ship',
+  'https://www.mvlempyr.com/novel/father-mother-escaped-again',
+  'https://www.mvlempyr.com/novel/femdom-island',
+  'https://www.mvlempyr.com/novel/feral-confessions---adrianna-and-the-alpha',
+  'https://www.mvlempyr.com/novel/festering-desire',
+  'https://www.mvlempyr.com/novel/fff-class-trashero',
+  'https://www.mvlempyr.com/novel/fields-of-gold',
+  'https://www.mvlempyr.com/novel/first-class-lawyer',
+  'https://www.mvlempyr.com/novel/first-contact',
+  'https://www.mvlempyr.com/novel/first-demonic-dragon',
+  'https://www.mvlempyr.com/novel/flash-marriage-charmed-by-the-ruthless-billionaire-ceo',
+  'https://www.mvlempyr.com/novel/flash-marriage-the-domineering-wife',
       ];
 
     const browser = await launchBrowser();
