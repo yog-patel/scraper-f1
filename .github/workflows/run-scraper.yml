@@ -1,43 +1,7 @@
-# name: Run Book Scraper Manually
-
-# on:
-#   workflow_dispatch:
-
-# jobs:
-#   run-scraper:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: Checkout repo
-#         uses: actions/checkout@v3
-
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: '18'
-
-#       - name: Install dependencies
-#         run: npm install
-
-#       - name: Install Chrome for Puppeteer
-#         run: npx puppeteer browsers install chrome
-
-#       - name: Run scraper 2.0
-#         env:
-#           DB_URL: "postgresql://carnage:ABEUEEbCtea4a7nSpDOXdHgs8xIewl8F@dpg-d00pbvk9c44c73cj0gmg-a.virginia-postgres.render.com/scraped_info"
-#         run: node main.js
-
-
-name: Run Book Scraper Every 6.5 Hours
+name: Run Book Scraper Manually
 
 on:
-  schedule:
-    - cron: '30 */6 * * *'
   workflow_dispatch:
-
-concurrency:
-  group: scraper-job
-  cancel-in-progress: false  # Queue up if already running
 
 jobs:
   run-scraper:
@@ -60,8 +24,44 @@ jobs:
 
       - name: Run scraper 2.0
         env:
-          DB_URL: "postgresql://your-db-url"
+          DB_URL: "postgresql://carnage:ABEUEEbCtea4a7nSpDOXdHgs8xIewl8F@dpg-d00pbvk9c44c73cj0gmg-a.virginia-postgres.render.com/scraped_info"
         run: node main.js
+
+
+# name: Run Book Scraper Every 6.5 Hours
+
+# on:
+#   schedule:
+#     - cron: '30 */6 * * *'
+#   workflow_dispatch:
+
+# concurrency:
+#   group: scraper-job
+#   cancel-in-progress: false  # Queue up if already running
+
+# jobs:
+#   run-scraper:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v3
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '18'
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Install Chrome for Puppeteer
+#         run: npx puppeteer browsers install chrome
+
+#       - name: Run scraper 2.0
+#         env:
+#           DB_URL: "postgresql://your-db-url"
+#         run: node main.js
 
 # name: Run Book Scraper Every 8 Hours
 
