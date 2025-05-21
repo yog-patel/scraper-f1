@@ -2,8 +2,8 @@ name: Scrape Novels
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 */6 * * *' # Adjust as needed
+  # schedule:
+  #   - cron: '30 */6 * * *' # Adjust as needed
 
 jobs:
   scrape:
