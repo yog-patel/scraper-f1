@@ -8,14 +8,36 @@ const dbConfig = {
   },
 };
 
-// Shared client for the process
-const client = new Client(dbConfig);
+let client = null;
 let clientConnected = false;
 
+// Helper to create and connect a new client
+async function connectClient() {
+  if (client) {
+    try { await client.end(); } catch {}
+  }
+  client = new Client(dbConfig);
+  clientConnected = false;
+  client.on('error', async (err) => {
+    console.error("Database client error:", err);
+    clientConnected = false;
+    // Try to reconnect on next ensureConnected
+  });
+  await client.connect();
+  clientConnected = true;
+}
+
+// Ensure the client is connected and alive, reconnect if needed
 async function ensureConnected() {
-  if (!clientConnected) {
-    await client.connect();
-    clientConnected = true;
+  if (!client || !clientConnected) {
+    await connectClient();
+  } else {
+    try {
+      await client.query('SELECT 1');
+    } catch (err) {
+      console.warn("Lost DB connection, reconnecting...");
+      await connectClient();
+    }
   }
 }
 
@@ -336,7 +358,7 @@ async function insertChapters(novelId, chapters) {
 
 // Close the shared database connection
 async function closeDbConnection() {
-  if (clientConnected) {
+  if (client && clientConnected) {
     await client.end();
     clientConnected = false;
     console.log("Database connection closed.");
