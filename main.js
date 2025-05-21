@@ -14,7 +14,20 @@ const path = require('path');
 // Read URLs from a file and split into batches of 50
 function getBatchUrls(batchIndex, batchSize = 50) {
     const urlsPath = path.join(__dirname, 'urls.txt');
-    const allUrls = fs.readFileSync(urlsPath, 'utf-8').split('\n').filter(Boolean);
+    const allUrls = fs.readFileSync(urlsPath, 'utf-8')
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line =>
+            line &&
+            !line.startsWith('//') &&
+            !line.startsWith('#')
+        )
+        .map(line => {
+            // Remove leading/trailing quotes and trailing commas
+            let url = line.replace(/^['"]+|['",]+$/g, '').trim();
+            return url;
+        })
+        .filter(url => url.startsWith('http'));
     const start = batchIndex * batchSize;
     const end = start + batchSize;
     return allUrls.slice(start, end);
