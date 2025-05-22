@@ -806,7 +806,7 @@ const dbConfig = {
     rejectUnauthorized: false,
   },
   // Ultra-conservative pool settings for Xata free tier (likely only 1 connection allowed)
-  max: 2, // Only 1 connection - Xata free tier seems to have very low limits
+  max: 3, // Only 1 connection - Xata free tier seems to have very low limits
   min: 0, 
   idleTimeoutMillis: 5000, // Close idle connections very quickly
   connectionTimeoutMillis: 15000, // Longer timeout for connection acquisition
