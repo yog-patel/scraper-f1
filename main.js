@@ -114,6 +114,8 @@ async function main() {
             } finally {
                 // Close the page after scraping
                 await page.close();
+                // Add a small delay between novels to avoid DB connection spikes
+                await new Promise(res => setTimeout(res, 500));
             }
         }
 
