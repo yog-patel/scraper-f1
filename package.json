@@ -12,10 +12,13 @@
   "dependencies": {
     "@xata.io/client": "^0.0.0-next.v93343b9646f57a1e5c51c35eccf0767c2bb80baa",
     "dotenv": "^16.5.0",
-    "pg": "^8.14.1",
+    "pg": "^8.16.0",
     "prisma": "^6.7.0",
     "puppeteer": "^24.6.1",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"
+  },
+  "devDependencies": {
+    "@xata.io/cli": "^0.16.12"
   }
 }

@@ -1,4 +1,5 @@
 // One URL per line, e.g.:
+"https://www.mvlempyr.com/novel/the-arcane-god",
 "https://www.mvlempyr.com/novel/hachinan-tte-sore-wa-nai-deshou-wn",
   "https://www.mvlempyr.com/novel/hades-cursed-luna",
   "https://www.mvlempyr.com/novel/hail-the-king",
