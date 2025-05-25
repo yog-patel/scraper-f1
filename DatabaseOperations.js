@@ -141,7 +141,7 @@ async function processGenres(novelId, genres) {
     }
   }
   // Get all genre IDs
-  const genreRows = await xata.db.genres.filter({ name: { $any: genres } }).getMany();
+  const genreRows = await xata.db.genres.filter({ name: { $any: genres } }).getAll();
   // Insert novel-genre relationships
   for (const genre of genreRows) {
     await xata.db.novel_genres.createOrUpdate({
@@ -162,7 +162,7 @@ async function processTags(novelId, tags) {
       // Ignore duplicate error
     }
   }
-  const tagRows = await xata.db.tags.filter({ name: { $any: tags } }).getMany();
+  const tagRows = await xata.db.tags.filter({ name: { $any: tags } }).getAll();
   for (const tag of tagRows) {
     await xata.db.novel_tags.createOrUpdate({
       novel_id: novelId,
