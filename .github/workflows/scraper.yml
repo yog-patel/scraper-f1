@@ -22,5 +22,10 @@ jobs:
         run: npm install
       - name: Install Chrome for Puppeteer
         run: npx puppeteer browsers install chrome
+      - name: Set up environment variables
+        run: |
+          echo "XATA_API_KEY=${{ secrets.XATA_API_KEY }}" >> $GITHUB_ENV
+          echo "XATA_BRANCH=main" >> $GITHUB_ENV
+          # echo "XATA_DATABASE_URL=https://Infinity-Free-Fire-s-workspace-ntm0uo.us-east-1.xata.sh/db/webnovelvault2" >> $GITHUB_ENV
       - name: Run scraper for batch
         run: node main.js ${{ matrix.batch }}
