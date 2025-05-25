@@ -1,0 +1,7 @@
+{
+  "databaseURL": "https://Infinity-Free-Fire-s-workspace-ntm0uo.us-east-1.xata.sh/db/webnovelvault2:main",
+  "codegen": {
+    "output": "./xata.js",
+    "moduleType": "cjs"
+  }
+}

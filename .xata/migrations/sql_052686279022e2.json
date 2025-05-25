@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_052686279022e2",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE IF NOT EXISTS bookmarks (bookmark_id serial PRIMARY KEY, user_id int REFERENCES users (user_id) ON DELETE CASCADE, novel_id int REFERENCES novels (novel_id) ON DELETE CASCADE, last_read_chapter int REFERENCES chapters (chapter_id) ON DELETE SET NULL, created_at timestamp with time zone DEFAULT current_timestamp, updated_at timestamp with time zone DEFAULT current_timestamp, UNIQUE (user_id, novel_id))"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_052686279022e2",
+  "parent": "sql_f14bb1b99048bf",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:35.438225Z"
+}

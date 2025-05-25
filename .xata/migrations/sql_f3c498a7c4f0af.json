@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_f3c498a7c4f0af",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE IF NOT EXISTS novel_genres (novel_id int REFERENCES novels (novel_id) ON DELETE CASCADE, genre_id int REFERENCES genres (genre_id) ON DELETE CASCADE, PRIMARY KEY (novel_id, genre_id))"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_f3c498a7c4f0af",
+  "parent": "sql_3b210d5572e20e",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:34.498868Z"
+}

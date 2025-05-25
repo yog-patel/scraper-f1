@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0ovo32r9e9qaqkp396g",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "novel_genres"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0ovo32r9e9qaqkp396g",
+  "parent": "mig_d0ovo0qr9e9qaqkp395g",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:04:13.157728Z"
+}

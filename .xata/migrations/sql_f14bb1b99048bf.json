@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_f14bb1b99048bf",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE IF NOT EXISTS chapters (chapter_id serial PRIMARY KEY, novel_id int REFERENCES novels (novel_id) ON DELETE CASCADE, chapter_number int NOT NULL, title varchar(255), content text NOT NULL, view_count int DEFAULT 0, created_at timestamp with time zone DEFAULT current_timestamp, updated_at timestamp with time zone DEFAULT current_timestamp, is_free boolean DEFAULT true)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_f14bb1b99048bf",
+  "parent": "sql_218f59c37f6e31",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:35.069032Z"
+}

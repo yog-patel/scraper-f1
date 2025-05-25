@@ -1,0 +1,20 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0ovlmido80pli9qpql0",
+    "operations": [
+      {
+        "alter_column": {
+          "name": "genre_id",
+          "table": "genres",
+          "column": "id"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0ovlmido80pli9qpql0",
+  "parent": "mig_d0ovl12unsp1bris8bc0",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:59:06.333559Z"
+}

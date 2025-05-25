@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3h6ar9e9qaqkp3aa0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "users",
+          "column": {
+            "name": "is_admin",
+            "type": "bool",
+            "comment": "",
+            "default": "'false'",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3h6ar9e9qaqkp3aa0",
+  "parent": "mig_d0p3grqunsp1bris8ctg",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:22:34.173917Z"
+}

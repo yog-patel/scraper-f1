@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_84043752baae0b",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE users (id serial PRIMARY KEY, avatar_url text, bio text, created_at timestamp DEFAULT current_timestamp, display_name varchar(255), email varchar(255) UNIQUE, is_active boolean DEFAULT true, is_admin boolean DEFAULT false, last_login timestamp, password_hash varchar(255), updated_at timestamp DEFAULT current_timestamp, user_id int UNIQUE, username varchar(255) UNIQUE)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_84043752baae0b",
+  "parent": "mig_d0ovh9ir9e9qaqkp391g",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:09.213365Z"
+}

@@ -1,0 +1,30 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3n8qdo80pli9qps80",
+    "operations": [
+      {
+        "add_column": {
+          "table": "novel_genres",
+          "column": {
+            "name": "genre_id",
+            "type": "text",
+            "comment": "{\"xata.link\":\"genres\"}",
+            "nullable": true,
+            "references": {
+              "name": "genre_id_link",
+              "table": "genres",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3n8qdo80pli9qps80",
+  "parent": "mig_d0p3muado80pli9qps70",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:35:31.722706Z"
+}

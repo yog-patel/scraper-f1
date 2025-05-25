@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_3b210d5572e20e",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE IF NOT EXISTS novels (novel_id serial PRIMARY KEY, title varchar(255) NOT NULL, author varchar(255), cover_image_url text, description text, status varchar(20) CHECK (status IN ('ongoing', 'completed', 'hiatus')), average_rating numeric(3, 2), view_count int DEFAULT 0, created_at timestamp with time zone DEFAULT current_timestamp, updated_at timestamp with time zone DEFAULT current_timestamp, is_featured boolean DEFAULT false, language varchar(50) DEFAULT 'English', slug varchar(511) UNIQUE)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_3b210d5572e20e",
+  "parent": "sql_83ac3ee16f11d2",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:34.074619Z"
+}

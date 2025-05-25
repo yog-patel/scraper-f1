@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_2458a5147e27b8",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE tags (id serial PRIMARY KEY, created_at timestamp DEFAULT current_timestamp, name varchar(255) NOT NULL, tag_id int UNIQUE)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_2458a5147e27b8",
+  "parent": "sql_603a284d2bdd58",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:14.313416Z"
+}

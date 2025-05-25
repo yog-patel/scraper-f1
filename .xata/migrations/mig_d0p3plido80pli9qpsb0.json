@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3plido80pli9qpsb0",
+    "operations": [
+      {
+        "add_column": {
+          "up": "0",
+          "table": "chapters",
+          "column": {
+            "name": "chapter_number",
+            "type": "int",
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3plido80pli9qpsb0",
+  "parent": "mig_d0p3oear9e9qaqkp3agg",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:40:39.352087Z"
+}

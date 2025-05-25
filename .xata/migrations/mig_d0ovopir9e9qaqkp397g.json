@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0ovopir9e9qaqkp397g",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "novels"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0ovopir9e9qaqkp397g",
+  "parent": "mig_d0ovomiunsp1bris8bn0",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:05:43.100369Z"
+}

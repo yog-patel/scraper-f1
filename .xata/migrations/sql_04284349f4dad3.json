@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_04284349f4dad3",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE INDEX idx_chapter_comments_chapter_id ON chapter_comments USING btree (chapter_id)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_04284349f4dad3",
+  "parent": "sql_4e7696f43318e3",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:16.957181Z"
+}

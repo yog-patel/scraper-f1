@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p445aunsp1bris8dig",
+    "operations": [
+      {
+        "add_column": {
+          "table": "ratings",
+          "column": {
+            "name": "score",
+            "type": "int",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p445aunsp1bris8dig",
+  "parent": "mig_d0p43k2unsp1bris8dfg",
+  "schema": "public",
+  "startedAt": "2025-05-24T22:03:02.64672Z"
+}

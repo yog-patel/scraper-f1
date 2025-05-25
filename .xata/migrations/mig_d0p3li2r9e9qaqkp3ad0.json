@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3li2r9e9qaqkp3ad0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "novels",
+          "column": {
+            "name": "view_count",
+            "type": "int",
+            "comment": "",
+            "default": "'0'",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3li2r9e9qaqkp3ad0",
+  "parent": "mig_d0p3lcado80pli9qps4g",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:31:53.219396Z"
+}

@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_83ac3ee16f11d2",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE IF NOT EXISTS tags (tag_id serial PRIMARY KEY, name varchar(50) UNIQUE NOT NULL, created_at timestamp with time zone DEFAULT current_timestamp)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_83ac3ee16f11d2",
+  "parent": "sql_f0bad8be9613c6",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:33.715987Z"
+}

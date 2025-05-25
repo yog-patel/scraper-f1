@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_55970e3ce2e4fc",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE IF NOT EXISTS users (user_id serial PRIMARY KEY, username varchar(50) UNIQUE NOT NULL, email varchar(100) UNIQUE NOT NULL, password_hash varchar(255) NOT NULL, display_name varchar(100), avatar_url text, bio text, created_at timestamp with time zone DEFAULT current_timestamp, updated_at timestamp with time zone DEFAULT current_timestamp, last_login timestamp with time zone, is_admin boolean DEFAULT false, is_active boolean DEFAULT true)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_55970e3ce2e4fc",
+  "parent": "mig_d0ovopir9e9qaqkp397g",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:32.845769Z"
+}

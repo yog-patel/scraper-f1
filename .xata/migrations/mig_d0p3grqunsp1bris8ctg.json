@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3grqunsp1bris8ctg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "users",
+          "column": {
+            "name": "bio",
+            "type": "text",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3grqunsp1bris8ctg",
+  "parent": "mig_d0p3go2do80pli9qprtg",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:21:52.403177Z"
+}

@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_bd0104b9f5caaf",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE INDEX idx_reading_history_chapter_id ON reading_history USING btree (chapter_id)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_bd0104b9f5caaf",
+  "parent": "sql_7b22b63ec31893",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:17.255285Z"
+}

@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_d3dd72c76535f3",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE INDEX idx_novels_status ON novels USING btree (status)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_d3dd72c76535f3",
+  "parent": "sql_6269b3bccdcb03",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:16.217214Z"
+}

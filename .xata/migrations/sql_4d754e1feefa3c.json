@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_4d754e1feefa3c",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE genres (id serial PRIMARY KEY, created_at timestamp DEFAULT current_timestamp, description text, name varchar(255) NOT NULL)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_4d754e1feefa3c",
+  "parent": "sql_84043752baae0b",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:10.329988Z"
+}

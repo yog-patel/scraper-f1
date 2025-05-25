@@ -104,159 +104,109 @@ async function scrapeNovelDetails(page) {
   }
 
 /**
-* Navigate to the chapters list and click on specific chapter
-* @param {Page} page - Puppeteer page instance
-* @param {number} startFromChapter - Chapter number to start from (0 for first chapter)
-*/
-async function navigateToChapter(page, startFromChapter = 0) {
-  try {
-    // Click the chapter listing button
-    await page.waitForSelector('#chapter-listing', { timeout: 5000 });
-    await page.evaluate(() => {
-      const button = document.getElementById('chapter-listing');
-      if (button) button.click();
-    });
-    
-    // Wait for chapter list to load
-    await page.waitForSelector('.chapter-item h3', { timeout: 5000 });
-    
-    // Click the target chapter
-    await page.evaluate((startIndex) => {
-      const chapters = document.querySelectorAll('.chapter-item h3');
-      const targetIndex = startIndex > 0 ? startIndex : 0;
-      if (chapters[targetIndex]) {
-        chapters[targetIndex].click();
-      }
-    }, startFromChapter);
-
-    await page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 30000 });
-    return true;
-  } catch (error) {
-    console.error('Navigation error:', error.message);
-    return false;
-  }
-}
-
-/**
 * Scrapes a single chapter content
 * @param {Page} page - Puppeteer page instance
 * @returns {Promise<Object>} Chapter title and content
 */
 async function scrapeChapterContent(page) {
-  try {
-    await page.waitForSelector('.ct-span p', { timeout: 5000 });
-    
-    return await page.evaluate(() => {
-      const titleElement = document.querySelector('h1') || document.querySelector('.chapter-title');
-      const title = titleElement ? titleElement.innerText.trim() : 'Untitled Chapter';
-      
-      const paragraphs = Array.from(document.querySelectorAll('.ct-span p'))
-        .map(p => p.innerText.trim())
-        .filter(text => text.length > 0);
-        
-      return { 
-        title: title,
-        content: paragraphs.join('\n\n')
-      };
-    });
-  } catch (error) {
-    console.error('Content scraping error:', error.message);
-    return null;
-  }
+  return await page.evaluate(() => {
+      // Use the correct selector for the chapter title
+      const chapterTitle = document.getElementById("span-28-1305853")?.innerText.trim() || "No title found";
+      // Collect all paragraphs inside .ct-span
+      const paragraphs = Array.from(document.querySelectorAll('.ct-span p')).map(p => p.innerText.trim());
+      const chapterText = paragraphs.join("\n\n"); // Preserve paragraph spacing
+      return { title: chapterTitle, content: chapterText };
+  });
 }
 
+/**
+* Navigates to the next chapter
+* @param {Page} page - Puppeteer page instance
+* @returns {Promise<boolean>} Whether navigation was successful
+*/
 async function navigateToNextChapter(page) {
   try {
-    await page.waitForSelector('#next-top', { timeout: 5000 });
-    
-    await Promise.all([
-      page.click('#next-top'),
-      page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 30000 })
-    ]);
-    
-    return true;
+      const nextBtn = await page.$("#next-top");
+      if (nextBtn) {
+          await nextBtn.evaluate(btn => btn.scrollIntoView({ behavior: "smooth", block: "center" }));
+          await new Promise(resolve => setTimeout(resolve, 2000)); // Allow scrolling
+          await nextBtn.click();
+          console.log("Clicked on the next chapter button.");
+          return true;
+      } else {
+          console.log("Next chapter button not found.");
+          return false;
+      }
   } catch (error) {
-    console.error('Next chapter navigation error:', error.message);
-    return false;
+      console.error("Error navigating to next chapter:", error);
+      return false;
   }
 }
 
-async function getChapterLinks(page) {
-  const maxAttempts = 3;
+/**
+* Navigate to the chapters list and click on specific chapter
+* @param {Page} page - Puppeteer page instance
+* @param {number} startFromChapter - Chapter number to start from (0 for first chapter)
+*/
+async function navigateToChapter(page, startFromChapter = 0) {
+  // Scroll to the button and wait
+  await page.evaluate(() => {
+      const button = document.getElementById("chapter-listing");
+      if (button) {
+          button.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+  });
+
+  await new Promise(resolve => setTimeout(resolve, 2000));
+
+  // Click the chapter-listing button after scrolling
+  await page.evaluate(() => {
+      document.getElementById("chapter-listing").click();
+  });
+
+  console.log("Clicked on 'Chapters' button successfully.");
   
-  for (let attempt = 0; attempt < maxAttempts; attempt++) {
-    try {
-      // Wait for the chapter list button with better selector
-      const chapterBtn = await page.waitForSelector('#chapter-listing, .chapter-list-button', {
-        timeout: 5000,
-        visible: true
-      });
-
-      if (!chapterBtn) {
-        console.log('Chapter list button not found, retrying...');
-        continue;
+  // Scroll to the target chapter
+  await page.evaluate((startFromChapter) => {
+      const chapterItems = document.querySelectorAll(".chapter-item h3");
+      const targetIndex = startFromChapter > 0 ? startFromChapter : 0;
+      if (chapterItems.length > targetIndex) {
+          chapterItems[targetIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+      } else if (chapterItems.length > 0) {
+          chapterItems[0].scrollIntoView({ behavior: "smooth", block: "center" });
       }
+  }, startFromChapter);
+  
+  await new Promise(resolve => setTimeout(resolve, 2000));
 
-      // Scroll to button and click
-      await page.evaluate((btn) => {
-        btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, chapterBtn);
-      
-      await page.waitForTimeout(1000);
-      await chapterBtn.click();
-      console.log('Successfully clicked chapter list button');
-
-      // Wait for chapter items to load with multiple possible selectors
-      await page.waitForSelector('.chapter-item a, .chapter-link, .chapter-title-link', {
-        timeout: 5000
-      });
-
-      // Extract chapter links
-      const links = await page.evaluate(() => {
-        const selectors = ['.chapter-item a', '.chapter-link', '.chapter-title-link'];
-        let elements = [];
-        
-        for (const selector of selectors) {
-          const found = Array.from(document.querySelectorAll(selector));
-          if (found.length > 0) {
-            elements = found;
-            break;
-          }
-        }
-
-        return elements.map(el => ({
-          url: el.href,
-          title: el.textContent.trim()
-        })).filter(link => link.url && link.title);
-      });
-
-      if (links.length > 0) {
-        console.log(`Found ${links.length} chapter links`);
-        return links;
+  // Click the targeted chapter
+  await page.evaluate((startFromChapter) => {
+      const chapterItems = document.querySelectorAll(".chapter-item h3");
+      const targetIndex = startFromChapter > 0 ? startFromChapter : 0;
+      if (chapterItems.length > targetIndex) {
+          chapterItems[targetIndex].click();
+      } else if (chapterItems.length > 0) {
+          chapterItems[0].click();
       }
+  }, startFromChapter);
 
-      console.log('No chapter links found, retrying...');
-      await page.waitForTimeout(2000);
-
-    } catch (error) {
-      console.log(`Attempt ${attempt + 1} failed:`, error.message);
-      if (attempt === maxAttempts - 1) throw error;
-      await page.waitForTimeout(2000);
-    }
-  }
-
-  throw new Error('Failed to get chapter links after multiple attempts');
+  console.log(`Clicked on chapter at position ${startFromChapter > 0 ? startFromChapter : 0} successfully.`);
 }
 
-const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-
+/**
+* Scrape chapters sequentially from the chapter list
+* @param {Page} page
+* @param {number} totalChapters
+* @param {number} existingChapters
+* @returns {Promise<Array<{title: string, content: string}>>}
+*/
 async function scrapeChapters(page, totalChapters, existingChapters = 0) {
   const scrapedChapters = [];
   const startChapter = existingChapters;
   const chaptersToScrape = totalChapters - existingChapters;
-  
+
   try {
-    // Click chapter list button and wait for animation
+    // Open chapter list
     await Promise.all([
       page.evaluate(() => {
         const button = document.getElementById("chapter-listing");
@@ -268,39 +218,32 @@ async function scrapeChapters(page, totalChapters, existingChapters = 0) {
       new Promise(r => setTimeout(r, 2000))
     ]);
 
-    // Wait for chapter list to load and get all chapters
-    await page.waitForSelector('.chapter-item', { timeout: 5000 });
-    
-    // Get all chapter links first
-    const chapterLinks = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('.chapter-item h3'))
-        .map((el, index) => ({
-          index,
-          element: el
-        }));
-    });
+    // Wait for chapter list to load
+    await page.waitForSelector('.chapter-item h3, .chapter-item, .chapter-link', { timeout: 7000 });
 
-    if (chapterLinks.length === 0) {
+    // Get all chapter elements
+    const chapterElements = await page.$$('.chapter-item h3, .chapter-item, .chapter-link');
+    if (chapterElements.length === 0) {
       throw new Error('No chapters found');
     }
 
     // Click starting chapter
-    await page.evaluate((startFrom) => {
-      const chapters = document.querySelectorAll('.chapter-item h3');
-      if (chapters[startFrom]) {
-        chapters[startFrom].click();
-      }
-    }, startChapter);
-
-    await page.waitForNavigation({ waitUntil: 'networkidle0' });
+    if (chapterElements[startChapter]) {
+      await chapterElements[startChapter].click();
+      await page.waitForNavigation({ waitUntil: 'networkidle0' });
+    } else {
+      throw new Error('Start chapter not found in chapter list');
+    }
 
     // Scrape chapters sequentially
     for (let i = 0; i < chaptersToScrape; i++) {
       console.log(`Scraping chapter ${startChapter + i + 1}/${totalChapters}`);
 
       const chapterContent = await scrapeChapterContent(page);
-      if (chapterContent.content) {
+      if (chapterContent && chapterContent.content) {
         scrapedChapters.push(chapterContent);
+      } else {
+        console.warn(`⚠️ Skipping chapter ${startChapter + i + 1}: content missing`);
       }
 
       if (i < chaptersToScrape - 1) {

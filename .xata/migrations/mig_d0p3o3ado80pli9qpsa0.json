@@ -1,0 +1,30 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3o3ado80pli9qpsa0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "novel_tags",
+          "column": {
+            "name": "tag_id",
+            "type": "text",
+            "comment": "{\"xata.link\":\"tags\"}",
+            "nullable": true,
+            "references": {
+              "name": "tag_id_link",
+              "table": "tags",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3o3ado80pli9qpsa0",
+  "parent": "mig_d0p3ns2do80pli9qps90",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:37:18.753841Z"
+}

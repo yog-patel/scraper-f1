@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_9f2f932b635c9a",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE reading_history (id serial PRIMARY KEY, chapter_id int REFERENCES chapters (chapter_id), history_id int UNIQUE, progress_percentage int CHECK (progress_percentage >= 0 AND progress_percentage <= 100), read_at timestamp DEFAULT current_timestamp, user_id int REFERENCES users (user_id))"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_9f2f932b635c9a",
+  "parent": "sql_b434bca90f635f",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:15.109243Z"
+}

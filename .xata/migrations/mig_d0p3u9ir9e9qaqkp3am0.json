@@ -1,0 +1,22 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3u9ir9e9qaqkp3am0",
+    "operations": [
+      {
+        "alter_column": {
+          "up": "(SELECT CASE WHEN \"user_id\" IS NULL THEN '' ELSE \"user_id\" END)",
+          "down": "(SELECT CASE WHEN \"user_id\" IS NULL THEN '' ELSE \"user_id\" END)",
+          "table": "reading_history",
+          "column": "user_id",
+          "nullable": false
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3u9ir9e9qaqkp3am0",
+  "parent": "mig_d0p3u52unsp1bris8d8g",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:50:31.045547Z"
+}

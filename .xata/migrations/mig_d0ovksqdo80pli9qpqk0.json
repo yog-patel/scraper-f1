@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0ovksqdo80pli9qpqk0",
+    "operations": [
+      {
+        "drop_column": {
+          "table": "bookmarks",
+          "column": "bookmark_id"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0ovksqdo80pli9qpqk0",
+  "parent": "sql_bd0104b9f5caaf",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:57:24.313141Z"
+}

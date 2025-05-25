@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_f0bad8be9613c6",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE IF NOT EXISTS genres (genre_id serial PRIMARY KEY, name varchar(50) UNIQUE NOT NULL, description text, created_at timestamp with time zone DEFAULT current_timestamp)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_f0bad8be9613c6",
+  "parent": "sql_55970e3ce2e4fc",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:33.344621Z"
+}

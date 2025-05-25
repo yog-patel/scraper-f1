@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_d503a7d9f4287b",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE chapter_comments (id serial PRIMARY KEY, created_at timestamp DEFAULT current_timestamp, updated_at timestamp DEFAULT current_timestamp, chapter_id int REFERENCES chapters (chapter_id), comment_id int UNIQUE, content text, parent_comment_id int REFERENCES chapter_comments (comment_id), user_id int REFERENCES users (user_id))"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_d503a7d9f4287b",
+  "parent": "sql_0294dfbbc1d1cc",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:12.599601Z"
+}

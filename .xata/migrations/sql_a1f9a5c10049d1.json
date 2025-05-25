@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_a1f9a5c10049d1",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE INDEX IF NOT EXISTS idx_ratings_novel_id ON ratings USING btree (novel_id)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_a1f9a5c10049d1",
+  "parent": "sql_baca31813032f9",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:38.009026Z"
+}

@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_8f556cade83dcd",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE IF NOT EXISTS reading_history (history_id serial PRIMARY KEY, user_id int REFERENCES users (user_id) ON DELETE CASCADE, chapter_id int REFERENCES chapters (chapter_id) ON DELETE CASCADE, progress_percentage int CHECK (progress_percentage BETWEEN 0 AND 100), read_at timestamp with time zone DEFAULT current_timestamp, UNIQUE (user_id, chapter_id))"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_8f556cade83dcd",
+  "parent": "sql_052686279022e2",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:35.877933Z"
+}

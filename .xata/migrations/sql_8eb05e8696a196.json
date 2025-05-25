@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_8eb05e8696a196",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE bookmarks (id serial PRIMARY KEY, created_at timestamp DEFAULT current_timestamp, updated_at timestamp DEFAULT current_timestamp, user_id int REFERENCES users (user_id), bookmark_id int UNIQUE, last_read_chapter int, novel_id int REFERENCES novels (novel_id))"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_8eb05e8696a196",
+  "parent": "sql_7644f3fc014b6a",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:11.197804Z"
+}

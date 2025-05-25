@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_56ed8771c26a66",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE IF NOT EXISTS ratings (rating_id serial PRIMARY KEY, novel_id int REFERENCES novels (novel_id) ON DELETE CASCADE, user_id int REFERENCES users (user_id) ON DELETE CASCADE, score int CHECK (score BETWEEN 1 AND 5), review text, created_at timestamp with time zone DEFAULT current_timestamp, updated_at timestamp with time zone DEFAULT current_timestamp, UNIQUE (user_id, novel_id))"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_56ed8771c26a66",
+  "parent": "sql_be7ca981292591",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:37.087377Z"
+}

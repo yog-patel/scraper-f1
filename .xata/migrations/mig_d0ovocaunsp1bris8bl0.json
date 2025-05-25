@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0ovocaunsp1bris8bl0",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "tags"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0ovocaunsp1bris8bl0",
+  "parent": "mig_d0ovo9aunsp1bris8bk0",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:04:50.044546Z"
+}

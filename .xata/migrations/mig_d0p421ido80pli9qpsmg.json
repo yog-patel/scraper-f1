@@ -1,0 +1,30 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p421ido80pli9qpsmg",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "novel_comments",
+          "column": {
+            "name": "novel_id",
+            "type": "text",
+            "comment": "{\"xata.link\":\"novels\"}",
+            "references": {
+              "name": "novel_id_link",
+              "table": "novels",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p421ido80pli9qpsmg",
+  "parent": "mig_d0p41pido80pli9qpslg",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:58:31.147296Z"
+}

@@ -1,0 +1,22 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3ugiunsp1bris8d9g",
+    "operations": [
+      {
+        "alter_column": {
+          "up": "(SELECT CASE WHEN \"tag_id\" IS NULL THEN '' ELSE \"tag_id\" END)",
+          "down": "(SELECT CASE WHEN \"tag_id\" IS NULL THEN '' ELSE \"tag_id\" END)",
+          "table": "novel_tags",
+          "column": "tag_id",
+          "nullable": false
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3ugiunsp1bris8d9g",
+  "parent": "mig_d0p3ud2do80pli9qpsig",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:50:59.46431Z"
+}

@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_603a284d2bdd58",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE ratings (id serial PRIMARY KEY, created_at timestamp DEFAULT current_timestamp, novel_id int REFERENCES novels (novel_id), rating_id int UNIQUE, review text, score int CHECK (score >= 1 AND score <= 5), updated_at timestamp DEFAULT current_timestamp, user_id int REFERENCES users (user_id))"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_603a284d2bdd58",
+  "parent": "sql_5c042507ecae57",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:13.840318Z"
+}

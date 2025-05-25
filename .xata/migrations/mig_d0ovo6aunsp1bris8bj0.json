@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0ovo6aunsp1bris8bj0",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "novel_tags"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0ovo6aunsp1bris8bj0",
+  "parent": "mig_d0ovo32r9e9qaqkp396g",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:04:26.312135Z"
+}

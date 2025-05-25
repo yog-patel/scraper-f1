@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_7644f3fc014b6a",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE novels (id serial PRIMARY KEY, author varchar(255), average_rating numeric(3, 2), cover_image_url text, created_at timestamp DEFAULT current_timestamp, description text, is_featured boolean DEFAULT false, language varchar(50), novel_id int UNIQUE, slug varchar(255) UNIQUE, status varchar(50), title varchar(255) NOT NULL, updated_at timestamp DEFAULT current_timestamp, view_count int DEFAULT 0)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_7644f3fc014b6a",
+  "parent": "sql_4d754e1feefa3c",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:10.705278Z"
+}

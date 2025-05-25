@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_4fa744c234da8f",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE INDEX idx_chapters_novel_id ON chapters USING btree (novel_id)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_4fa744c234da8f",
+  "parent": "sql_d3dd72c76535f3",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:16.314762Z"
+}

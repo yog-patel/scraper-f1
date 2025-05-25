@@ -1,3 +1,4 @@
+require('dotenv').config();
 // main.js - Synchronized with DatabaseOperations.js
 const { launchBrowser } = require("./browser");
 const { scrapeNovelDetails, scrapeChapters } = require("./scraper");
@@ -8,7 +9,6 @@ const {
   healthCheck,
   closeDbConnection,
   checkNovelExists,
-  rateLimiter,
   batchProcessor
 } = require("./DatabaseOperations");
 const fs = require('fs');
@@ -77,10 +77,10 @@ async function processNovel(url, page) {
     console.log(`🔍 Processing novel from URL: ${url}`);
     
     try {
-        // Navigate to the novel page
+        // Increase navigation timeout to 60 seconds
         await page.goto(url, { 
             waitUntil: "networkidle2",
-            timeout: 30000 
+            timeout: 60000 // was 30000
         });
 
         // Scrape novel details
@@ -112,8 +112,8 @@ async function processNovel(url, page) {
         let novelId;
         
         if (existingNovel) {
-            console.log(`✅ Novel already exists with ID: ${existingNovel.novel_id}`);
-            novelId = existingNovel.novel_id;
+            console.log(`✅ Novel already exists with ID: ${existingNovel.xata_id}`);
+            novelId = existingNovel.xata_id;
         } else {
             // Insert new novel
             console.log('💾 Inserting new novel into database...');
@@ -276,7 +276,7 @@ async function main() {
                 await page.setUserAgent(
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
                 );
-                await page.setDefaultTimeout(30000);
+                await page.setDefaultTimeout(60000); // was 30000
 
                 // Process the novel
                 const result = await processNovel(url, page);

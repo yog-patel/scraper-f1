@@ -1,0 +1,30 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p42m2do80pli9qpsog",
+    "operations": [
+      {
+        "add_column": {
+          "table": "novel_comments",
+          "column": {
+            "name": "parent_comment_id",
+            "type": "text",
+            "comment": "{\"xata.link\":\"novel_comments\"}",
+            "nullable": true,
+            "references": {
+              "name": "parent_comment_id_link",
+              "table": "novel_comments",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p42m2do80pli9qpsog",
+  "parent": "mig_d0p42cado80pli9qpsng",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:59:52.942798Z"
+}

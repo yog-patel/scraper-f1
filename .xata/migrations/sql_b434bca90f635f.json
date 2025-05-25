@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_b434bca90f635f",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE novel_tags (id serial PRIMARY KEY, novel_id int REFERENCES novels (novel_id), tag_id int REFERENCES tags (tag_id))"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_b434bca90f635f",
+  "parent": "sql_2458a5147e27b8",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:14.680621Z"
+}

@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3rlqdo80pli9qpse0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "chapters",
+          "column": {
+            "name": "view_count",
+            "type": "int",
+            "comment": "",
+            "default": "'0'",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3rlqdo80pli9qpse0",
+  "parent": "mig_d0p3rfido80pli9qpsd0",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:44:56.598076Z"
+}

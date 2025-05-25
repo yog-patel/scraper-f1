@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3ge2do80pli9qprsg",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "users",
+          "column": {
+            "name": "password_hash",
+            "type": "text",
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3ge2do80pli9qprsg",
+  "parent": "mig_d0p3fsir9e9qaqkp3a7g",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:20:57.264281Z"
+}

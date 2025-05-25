@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_1c4bab088d5195",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE INDEX idx_ratings_novel_id ON ratings USING btree (novel_id)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_1c4bab088d5195",
+  "parent": "sql_a6cb3c2bd403e4",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:16.644516Z"
+}

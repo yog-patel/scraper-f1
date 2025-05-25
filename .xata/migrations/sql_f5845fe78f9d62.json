@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_f5845fe78f9d62",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE IF NOT EXISTS novel_comments (comment_id serial PRIMARY KEY, novel_id int REFERENCES novels (novel_id) ON DELETE CASCADE, user_id int REFERENCES users (user_id) ON DELETE SET NULL, content text NOT NULL, created_at timestamp with time zone DEFAULT current_timestamp, updated_at timestamp with time zone DEFAULT current_timestamp, parent_comment_id int REFERENCES novel_comments (comment_id) ON DELETE CASCADE)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_f5845fe78f9d62",
+  "parent": "sql_8f556cade83dcd",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:36.293346Z"
+}

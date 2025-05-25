@@ -1,0 +1,22 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3v2qunsp1bris8dbg",
+    "operations": [
+      {
+        "alter_column": {
+          "up": "(SELECT CASE WHEN \"novel_id\" IS NULL THEN '' ELSE \"novel_id\" END)",
+          "down": "(SELECT CASE WHEN \"novel_id\" IS NULL THEN '' ELSE \"novel_id\" END)",
+          "table": "novel_genres",
+          "column": "novel_id",
+          "nullable": false
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3v2qunsp1bris8dbg",
+  "parent": "mig_d0p3uoaunsp1bris8dag",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:52:12.21297Z"
+}

@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_0294dfbbc1d1cc",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE chapters (id serial PRIMARY KEY, created_at timestamp DEFAULT current_timestamp, novel_id int REFERENCES novels (novel_id), title varchar(255), updated_at timestamp DEFAULT current_timestamp, view_count int DEFAULT 0, chapter_id int UNIQUE, chapter_number int, content text, is_free boolean DEFAULT true)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_0294dfbbc1d1cc",
+  "parent": "sql_8eb05e8696a196",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:12.092981Z"
+}

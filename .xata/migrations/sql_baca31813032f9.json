@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_baca31813032f9",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE INDEX IF NOT EXISTS idx_chapter_comments_chapter_id ON chapter_comments USING btree (chapter_id)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_baca31813032f9",
+  "parent": "sql_a85422a8ee24e7",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:37.910658Z"
+}

@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3kcado80pli9qps2g",
+    "operations": [
+      {
+        "add_column": {
+          "table": "novels",
+          "column": {
+            "name": "description",
+            "type": "text",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3kcado80pli9qps2g",
+  "parent": "mig_d0p3k6ir9e9qaqkp3ac0",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:29:22.246526Z"
+}

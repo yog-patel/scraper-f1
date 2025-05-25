@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_a85422a8ee24e7",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE INDEX IF NOT EXISTS idx_novel_comments_novel_id ON novel_comments USING btree (novel_id)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_a85422a8ee24e7",
+  "parent": "sql_15239753aa96e8",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:37.813948Z"
+}

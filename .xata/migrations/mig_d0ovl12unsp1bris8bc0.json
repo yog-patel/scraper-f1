@@ -1,0 +1,20 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0ovl12unsp1bris8bc0",
+    "operations": [
+      {
+        "alter_column": {
+          "name": "bookmark_id",
+          "table": "bookmarks",
+          "column": "id"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0ovl12unsp1bris8bc0",
+  "parent": "mig_d0ovksqdo80pli9qpqk0",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:57:41.628468Z"
+}

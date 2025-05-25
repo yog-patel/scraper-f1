@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3vtqdo80pli9qpskg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "reading_history",
+          "column": {
+            "name": "progress_percentage",
+            "type": "float",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3vtqdo80pli9qpskg",
+  "parent": "mig_d0p3vfaunsp1bris8deg",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:54:00.314965Z"
+}

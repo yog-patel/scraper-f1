@@ -1,0 +1,22 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3k6ir9e9qaqkp3ac0",
+    "operations": [
+      {
+        "alter_column": {
+          "up": "\"cover_image_url\"",
+          "down": "\"cover_image_url\"",
+          "table": "novels",
+          "column": "cover_image_url",
+          "nullable": true
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3k6ir9e9qaqkp3ac0",
+  "parent": "mig_d0p3jt2do80pli9qps1g",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:28:59.741643Z"
+}

@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_6e1415db351847",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE INDEX IF NOT EXISTS idx_bookmarks_user_id ON bookmarks USING btree (user_id)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_6e1415db351847",
+  "parent": "sql_234b827bc9c0df",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:10:37.626225Z"
+}

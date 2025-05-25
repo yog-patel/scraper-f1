@@ -1,0 +1,21 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3jcir9e9qaqkp3ab0",
+    "operations": [
+      {
+        "drop_constraint": {
+          "up": "\"title\"",
+          "down": "\"title\"",
+          "name": "novels__pgroll_new_title_key",
+          "table": "novels"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3jcir9e9qaqkp3ab0",
+  "parent": "mig_d0p3j8ado80pli9qps0g",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:27:15.728477Z"
+}

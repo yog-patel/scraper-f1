@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_63823193534fca",
+    "operations": [
+      {
+        "sql": {
+          "up": "DROP TABLE IF EXISTS ratings, chapter_comments, novel_comments, reading_history, bookmarks, chapters, novel_tags, novel_genres, tags, genres, novels, users CASCADE"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_63823193534fca",
+  "parent": "mig_d0p05iado80pli9qpqug",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:36:14.944237Z"
+}

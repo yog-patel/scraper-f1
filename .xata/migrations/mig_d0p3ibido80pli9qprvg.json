@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3ibido80pli9qprvg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "genres",
+          "column": {
+            "name": "description",
+            "type": "text",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3ibido80pli9qprvg",
+  "parent": "mig_d0p3i52unsp1bris8d1g",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:25:03.030144Z"
+}

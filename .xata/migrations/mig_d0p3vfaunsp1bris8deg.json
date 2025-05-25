@@ -1,0 +1,22 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p3vfaunsp1bris8deg",
+    "operations": [
+      {
+        "alter_column": {
+          "up": "(SELECT CASE WHEN \"content\" IS NULL THEN '' ELSE \"content\" END)",
+          "down": "(SELECT CASE WHEN \"content\" IS NULL THEN '' ELSE \"content\" END)",
+          "table": "chapters",
+          "column": "content",
+          "nullable": false
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p3vfaunsp1bris8deg",
+  "parent": "mig_d0p3vbqunsp1bris8ddg",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:53:01.753216Z"
+}

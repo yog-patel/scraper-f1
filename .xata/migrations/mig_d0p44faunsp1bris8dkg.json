@@ -1,0 +1,22 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p44faunsp1bris8dkg",
+    "operations": [
+      {
+        "alter_column": {
+          "up": "(SELECT CASE WHEN \"score\" IS NULL THEN 0 ELSE \"score\" END)",
+          "down": "(SELECT CASE WHEN \"score\" IS NULL THEN 0 ELSE \"score\" END)",
+          "table": "ratings",
+          "column": "score",
+          "nullable": false
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p44faunsp1bris8dkg",
+  "parent": "mig_d0p449qunsp1bris8djg",
+  "schema": "public",
+  "startedAt": "2025-05-24T22:03:42.382465Z"
+}

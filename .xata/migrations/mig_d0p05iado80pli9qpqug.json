@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p05iado80pli9qpqug",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "chapter_comments"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p05iado80pli9qpqug",
+  "parent": "mig_d0ovunido80pli9qpqrg",
+  "schema": "public",
+  "startedAt": "2025-05-24T17:32:58.161533Z"
+}

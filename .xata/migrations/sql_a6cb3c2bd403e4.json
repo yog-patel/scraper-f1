@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_a6cb3c2bd403e4",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE INDEX idx_bookmarks_user_novel ON bookmarks USING btree (user_id, novel_id)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_a6cb3c2bd403e4",
+  "parent": "sql_fe0d921bdce7bc",
+  "schema": "public",
+  "startedAt": "2025-05-24T16:56:16.536066Z"
+}

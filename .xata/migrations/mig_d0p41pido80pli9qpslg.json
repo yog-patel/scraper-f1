@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0p41pido80pli9qpslg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "reading_history",
+          "column": {
+            "name": "read_at",
+            "type": "timestamptz",
+            "comment": "",
+            "default": "now()",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0p41pido80pli9qpslg",
+  "parent": "mig_d0p3vtqdo80pli9qpskg",
+  "schema": "public",
+  "startedAt": "2025-05-24T21:57:58.663414Z"
+}
