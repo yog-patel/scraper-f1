@@ -1199,8 +1199,8 @@ const tables = [
 const DatabaseClient = (0, client_1.buildClient)();
 const defaultOptions = {
   // databaseURL:"https://Infinity-Free-Fire-s-workspace-ntm0uo.us-east-1.xata.sh/db/webnovelvault2",
-  databaseURL: process.env.XATA_DATABASE_URL,
-  apiKey: process.env.XATA_API_KEY,
+  databaseURL: "https://Infinity-Free-Fire-s-workspace-ntm0uo.us-east-1.xata.sh/db/webnovelvault2",
+  apiKey: "xau_WRxpN60kT7cEqyx22FLMcH7tp7vkmwDr0",
   branch: process.env.XATA_BRANCH || "main",
 };
 /** @typedef { import('./types').DatabaseSchema } DatabaseSchema */
