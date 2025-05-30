@@ -163,8 +163,8 @@ async function processNovel(url, page) {
         }
 
         // Calculate chapters to scrape, but limit to 50 at most
-        const chaptersToScrape = Math.min(totalChapters - latestChapterNumber, 50);
-        console.log(`📝 Need to scrape ${chaptersToScrape} new chapters (max 50 per run).`);
+        const chaptersToScrape = Math.min(totalChapters - latestChapterNumber, 500);
+        console.log(`📝 Need to scrape ${chaptersToScrape} new chapters (max 500 per run).`);
 
         // Scrape new chapters (limit to 50)
         console.log('🕷️ Starting chapter scraping...');
@@ -183,7 +183,7 @@ async function processNovel(url, page) {
             try {
                 insertedChapters = await withTimeout(
                     insertChapters(novelId, scrapedChapters),
-                    300000, // 5 minute timeout for chapter insertion
+                    600000, // 10 minute timeout for chapter insertion
                     'Chapter insertion'
                 );
                 console.log(`✅ Successfully stored ${insertedChapters} chapters`);
