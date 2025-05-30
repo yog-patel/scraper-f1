@@ -176,7 +176,7 @@ async function insertChapters(novelId, chapters) {
   const latestChapterNumber = await getLatestChapterNumber(novelId);
   console.log(`Current latest chapter: ${latestChapterNumber}`);
   let newChaptersCount = 0;
-  const batchSize = 10;
+  const batchSize = 1;
 
   for (let i = 0; i < chapters.length; i += batchSize) {
     const batch = chapters.slice(i, i + batchSize);
